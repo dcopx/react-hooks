@@ -1,10 +1,11 @@
 import React from 'react'
 
-export const TodoListItem = ({ todo }) => {
+export const TodoListItem = ({ todo, onToggleTodo, onDeleteTodo }) => {
+
     return (
         <li >
-            <span>{todo.description}  </span>
-            <button>borrar</button>
+            <span onClick={() => onToggleTodo(todo.id)}>{todo.description}  </span>
+            <button onClick={() => onDeleteTodo(todo.id)}>borrar</button>
         </li>
     )
 }

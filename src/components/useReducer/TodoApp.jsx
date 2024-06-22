@@ -1,29 +1,21 @@
-import React, { useReducer, useCallback } from 'react'
-import { todoReducer } from './todoReducer'
+import React from 'react'
 import { TodoList } from './TodoList'
 import { TodoAdd } from './TodoAdd'
-
-const initState = [{
-    id: new Date().getTime(),
-    description: 'trabajar',
-    done: false
-}]
-
+import { useTodos } from '../../hooks/useTodos'
 
 export const TodoApp = () => {
+    const { todos, pendingTodos, handleDeleteTodo, handleNewTodo, handleToggleTodo } = useTodos()
 
-    const [todos, dispatch] = useReducer(todoReducer, initState)
-
-    const handleNewTodo = (todo) => {
-        console.log(todo)
-    }
     return (
         <>
-            <h1>Todo 10, pendientes 2</h1>
+            <h1>Todo {todos.length}, pendientes {pendingTodos.length}</h1>
             <hr />
             <div className="row">
                 <div className="col-7">
-                    <TodoList todos={todos} />
+                    <TodoList
+                        todos={todos}
+                        onToggleTodo={handleToggleTodo}
+                        onDeleteTodo={handleDeleteTodo} />
                 </div>
                 <div className="col5">
                     <h4>agregar</h4>
