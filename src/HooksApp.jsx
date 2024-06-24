@@ -6,12 +6,14 @@ import React from 'react'
 // import { MemoHook } from './components/useMemo/MemoHook'
 // import { CallbackHook } from './components/useCallback/CallbackHook'
 // import { Padre } from './components/07-tarea-memo/Padre'
-import { TodoApp } from './components/useReducer/TodoApp'
+// import { TodoApp } from './components/useReducer/TodoApp'
+import { MainApp } from './components/useRouter/MainApp'
+import { BrowserRouter } from 'react-router-dom'
 
 export const HooksApp = () => {
     return (
-        <>
-            <TodoApp />
-        </>
+        <BrowserRouter>
+            <MainApp />
+        </BrowserRouter>
     )
 }
